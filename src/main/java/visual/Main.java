@@ -19,8 +19,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Box;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import movement.MovementFiguresOnField;
@@ -28,7 +32,7 @@ import movement.MovementFiguresOnField;
 import java.util.List;
 
 public class Main extends  Application {
-    //private AnchorPane nextFigure;
+    private AnchorPane nextFigure;
     private AnchorPane root;
     private AnchorPane figuresPane;
     private static AnchorPane fakePane;
@@ -37,6 +41,7 @@ public class Main extends  Application {
     private Scene scene;
     public static Label score = new Label();
     public Label scoreWord = new Label();
+    public Label nextWord = new Label();
     private Button restartButton;
     private Figure currentFigure;
     private Field groupField = new Field();
@@ -49,11 +54,15 @@ public class Main extends  Application {
 
         figuresPane = new AnchorPane();
         fakePane = new AnchorPane();
+        nextFigure = new AnchorPane();
         root = new AnchorPane(groupField);
         root.getChildren().add(figuresPane);
         root.getChildren().add(fakePane);
 
         root.setBackground(new Background(new BackgroundFill(Color.SILVER, null, null)));
+
+        nextFigure.setLayoutX(300);
+        nextFigure.setLayoutY(430);
 
         figuresPane.getChildren().addListener(new ListChangeListener() {
             @Override
@@ -66,8 +75,8 @@ public class Main extends  Application {
                         currentMove = currentFigure.getMoveFigure();
                         System.out.println("Current figure: "+currentFigure);
 
-                        //nextFigure.getChildren().clear();
-                        //nextFigure.getChildren().add(getNextFigure());
+                        nextFigure.getChildren().clear();
+                        nextFigure();
 
                     }
                 }
@@ -75,8 +84,6 @@ public class Main extends  Application {
         });
         FigureFactory.createInstanceAndAddFigureInList(figuresPane);
         currentMove = currentFigure.getMoveFigure();
-       // nextFigure = new AnchorPane(getNextFigure());
-        //root.getChildren().add(nextFigure);
 
         primaryStage.setTitle("Tetris");
         scene = new Scene(root, 600, 680);
@@ -85,6 +92,11 @@ public class Main extends  Application {
         scoreWord.setTranslateX(465);
         scoreWord.setTranslateY(60);
         scoreWord.setText("Score:");
+
+        nextWord.setFont(Font.font("Helvetica", FontWeight.BOLD,28));
+        nextWord.setTranslateX(465);
+        nextWord.setTranslateY(305);
+        nextWord.setText("Next:");
 
         score.setFont(Font.font("Helvetica", FontWeight.BOLD,30));
         score.setTranslateX(495);
@@ -117,6 +129,9 @@ public class Main extends  Application {
         });
 
         //
+
+        root.getChildren().add(nextFigure);
+        root.getChildren().add(nextWord);
         root.getChildren().add(restartButton);
         root.getChildren().add(scoreWord);
         root.getChildren().add(score);
@@ -150,48 +165,41 @@ public class Main extends  Application {
     public static AnchorPane getFakePane() {
         return fakePane;
     }
-    private Figure getNextFigure() {
+    private void nextFigure() {
         Figure figure = null;
         switch (FigureFactory.getFiguresIndex().get(0)) {
             case 0:
-                figure = new Stick(root, 0);
+                figure = new Stick(nextFigure, 0);
                 break;
             case 1:
-                figure = new CurveStickRight(root, 0);
+                figure = new CurveStickRight(nextFigure, 0);
                 break;
             case 2:
-                figure = new TShaped(root, 0);
+                figure = new TShaped(nextFigure, 0);
                 break;
             case 3:
-                figure = new Square(root, 0);
+                figure = new Square(nextFigure, 0);
                 break;
             case 4:
-                figure = new CurveStickLeft(root, 0);
+                figure = new CurveStickLeft(nextFigure, 0);
                 break;
             case 5:
-                figure = new ChairLeft(root, 0);
+                figure = new ChairLeft(nextFigure, 0);
                 break;
             case 6:
-                figure = new ChairRight(root, 0);
+                figure = new ChairRight(nextFigure, 0);
                 break;
         }
-        figure.setTranslateX(300);
-        figure.setTranslateY(300);
+        for (Box box :figure.getBoxs()) {
+            box.getTransforms().add(new Rotate(0, new Point3D(0.01d, 0.01d, 0)));
+            box.setHeight(40);
+            box.setWidth(40);
+            box.setDepth(36);
+            PhongMaterial phongMaterial = new PhongMaterial(Color.rgb(105, 105, 105));
+            box.setMaterial(phongMaterial);
+        }
 
-        Timeline animation = null;
-        Figure finalFigure = figure;
-        EventHandler<ActionEvent> fall  = event -> {
-            rotate = rotate + 1.5;
-            finalFigure.setRotationAxis(new Point3D(0, 0.01, 0));
-            finalFigure.setRotate(rotate);
 
-        };
-        animation = new Timeline(new KeyFrame(Duration.millis(20), fall));
-        animation.setCycleCount(Animation.INDEFINITE);
-        animation.play();
-        figure.getMoveFigure().stopAnimation();
-
-        return finalFigure;
     }
 
     public static void main(String[] args) {

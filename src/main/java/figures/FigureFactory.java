@@ -13,14 +13,24 @@ public class FigureFactory {
     private static List<Integer> figuresIndex = new ArrayList<>();
 
     private static int getRandomIndex() {
+        int res = 0;
 
-        if (figuresIndex.size() == 0) {
+        if (figuresIndex.size() == 1) {
+            res = figuresIndex.remove(0);
             for (int i = 0; i <= 6; i++) {
                 figuresIndex.add(i);
             }
             Collections.shuffle(figuresIndex);
+        } else if (figuresIndex.size() == 0) {
+            for (int i = 0; i <= 6; i++) {
+                figuresIndex.add(i);
+            }
+            Collections.shuffle(figuresIndex);
+            res = figuresIndex.remove(0);
+        } else {
+            res = figuresIndex.remove(0);
         }
-        return figuresIndex.remove(0);
+        return res;
     }
     public static Figure createInstanceAndAddFigureInList(AnchorPane root) {
         Figure figure = null;
