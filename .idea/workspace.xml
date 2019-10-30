@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0ef48fd8-c16c-481b-9e41-c47d1729f863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/figures/FigureFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/figures/FigureFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/figures/FigureFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/figures/FigureFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visual/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visual/Field.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visual/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visual/Main$1.class" afterDir="false" />
@@ -182,7 +179,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572375788333" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572453196717" />
     <property name="settings.editor.selected.configurable" value="gradle.compiler" />
   </component>
   <component name="RunDashboard">
@@ -242,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572199493911</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="next figure add">
+      <created>1572376301421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572376301421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -287,7 +291,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="f2" />
-    <option name="LAST_COMMIT_MESSAGE" value="f2" />
+    <MESSAGE value="next figure add" />
+    <option name="LAST_COMMIT_MESSAGE" value="next figure add" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
