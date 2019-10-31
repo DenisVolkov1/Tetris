@@ -128,15 +128,11 @@ public class Main extends  Application {
 
         });
 
-        //
-
         root.getChildren().add(nextFigure);
         root.getChildren().add(nextWord);
         root.getChildren().add(restartButton);
         root.getChildren().add(scoreWord);
         root.getChildren().add(score);
-
-
 
         /*Camera camera = new PerspectiveCamera();
         scene.setCamera(camera);*/
