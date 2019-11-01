@@ -10,7 +10,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.Effect;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Box;
 import javafx.util.Duration;
 import util.AnimationParts;
@@ -22,6 +27,8 @@ public class MovementFiguresOnField {
     private static boolean[] deleteRows = new boolean[16];
 
     private Timeline animationFall;
+    private Timeline animationLeftShift;
+    private Timeline animationRightShift;
 
 
     private AnchorPane root;
@@ -42,7 +49,15 @@ public class MovementFiguresOnField {
         EventHandler<ActionEvent> fall  = event -> {
             moveFall();
         };
+        EventHandler<ActionEvent> left  = event -> {
+            moveLeft();
+        };
+        EventHandler<ActionEvent> right  = event -> {
+            moveRight();
+        };
         animationFall = new Timeline(1000d,new KeyFrame(Duration.millis(rateFigures), fall));
+        animationLeftShift = new Timeline(new KeyFrame(Duration.millis(1), left));
+        animationRightShift = new Timeline(new KeyFrame(Duration.millis(1), right));
         animationFall.setCycleCount(Animation.INDEFINITE);
         animationFall.play();
     }
@@ -105,12 +120,11 @@ public class MovementFiguresOnField {
     public void movementFall() {
         animationFall.play();
     }
-
     public void movementLeft() {
-       moveLeft();
+       animationLeftShift.play();
     }
     public void movementRight() {
-        moveRight();
+       animationRightShift.play();
     }
 
     private boolean checkConstraintFall(Box[] parts) {
@@ -149,10 +163,12 @@ public class MovementFiguresOnField {
         int indexPart2 = figure.getPositionIndexPartInArray(figure.getBoxs()[1]);
         int indexPart3 = figure.getPositionIndexPartInArray(figure.getBoxs()[2]);
         int indexPart4 = figure.getPositionIndexPartInArray(figure.getBoxs()[3]);
-        locationParts[indexPart1] = true;
-        locationParts[indexPart2] = true;
-        locationParts[indexPart3] = true;
-        locationParts[indexPart4] = true;
+
+        if(indexPart1 < 160) locationParts[indexPart1] = true;
+        if(indexPart2 < 160) locationParts[indexPart2] = true;
+        if(indexPart3 < 160) locationParts[indexPart3] = true;
+        if(indexPart4 < 160) locationParts[indexPart4] = true;
+
     }
     private void disapereRow(ObservableList<Node> figures, int row) {
         ObservableList<Node> fakeBoxes = FXCollections.observableArrayList();
@@ -178,16 +194,6 @@ public class MovementFiguresOnField {
         root.getChildren().removeAll(emptyFigures);
     }
 
-
-    private void delete(ObservableList<Node> figures, ObservableList<Node> q) {
-        for (Node figure : figures) {
-            Figure f = (Figure) figure;
-            for (Node box : q) {
-                f.getChildren().remove(box);
-            }
-        }
-    }
-
     private void downAllFiguresUpperRemoveLine(ObservableList<Node> figures, int row) {
         for (int i = row*10+10; i < 160; i++) {
             for (Node figure : figures) {
@@ -204,6 +210,8 @@ public class MovementFiguresOnField {
     public void stopAnimation() {
         animationFall.stop();
         animationFall.getKeyFrames().clear();
+        animationRightShift.stop();
+        animationLeftShift.stop();
     }
 
     private void setTranslateXBoxes(double...argX) {
@@ -276,9 +284,12 @@ public class MovementFiguresOnField {
             for (int i = 0; i < 4; i++) currentY[i] += 1;
             this.setTranslateYBoxes(currentY);
         } else {
+
             stopAnimation();
-            commitFigureInArray();
-            checkOnRemovesRows();
+                commitFigureInArray();
+                    if(isOverGame()) return;
+                        checkOnRemovesRows();
+
             for (int j = 15; j >= 0; j--) {
                 if (deleteRows[j]) {
 
@@ -289,6 +300,29 @@ public class MovementFiguresOnField {
             FigureFactory.createInstanceAndAddFigureInList(root);
         }
     }
+
+    private boolean isOverGame() {
+        for (int i = 150; i < 160; i++) {
+            if(locationParts[i]) {
+                Effect frostEffect =
+                        new BoxBlur(10, 10, 3);
+                ImageView background = new ImageView();
+                WritableImage image = Main.scene.snapshot( null);
+                background.setImage(image);
+                background.setEffect(frostEffect);
+
+                StackPane stackPane = new StackPane();
+                stackPane.getChildren().setAll(background);
+                stackPane.setStyle("-fx-background-color: null");
+                root.getChildren().add(stackPane);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void rotation() {
         double[] coordinateBoxes = figure.getNextCoordinateRotation();
         for (int i = 0; i < 8; i = i+2) {

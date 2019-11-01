@@ -6,18 +6,21 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.collections.ListChangeListener;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Point3D;
-import javafx.scene.Camera;
-import javafx.scene.PerspectiveCamera;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
@@ -32,13 +35,15 @@ import movement.MovementFiguresOnField;
 import java.util.List;
 
 public class Main extends  Application {
+
     private AnchorPane nextFigure;
     private AnchorPane root;
     private AnchorPane figuresPane;
     private static AnchorPane fakePane;
     private MovementFiguresOnField currentMove;
 
-    private Scene scene;
+
+    public static Scene scene;
     public static Label score = new Label();
     public Label scoreWord = new Label();
     public Label nextWord = new Label();
@@ -58,11 +63,11 @@ public class Main extends  Application {
         root = new AnchorPane(groupField);
         root.getChildren().add(figuresPane);
         root.getChildren().add(fakePane);
-
         root.setBackground(new Background(new BackgroundFill(Color.SILVER, null, null)));
 
         nextFigure.setLayoutX(300);
         nextFigure.setLayoutY(430);
+
 
         figuresPane.getChildren().addListener(new ListChangeListener() {
             @Override
@@ -138,6 +143,7 @@ public class Main extends  Application {
         scene.setCamera(camera);*/
 
         scene.setOnKeyPressed(keyEvent -> {
+
             if (keyEvent.getCode() == KeyCode.LEFT) {
                 currentMove.movementLeft();
             }
@@ -193,9 +199,12 @@ public class Main extends  Application {
             box.setDepth(36);
             PhongMaterial phongMaterial = new PhongMaterial(Color.rgb(105, 105, 105));
             box.setMaterial(phongMaterial);
+
+            GaussianBlur gaussianBlur = new GaussianBlur();
+            //Setting the radius to apply the Gaussian Blur effect
+            gaussianBlur.setRadius(10.5);
+            box.setEffect(gaussianBlur);
         }
-
-
     }
 
     public static void main(String[] args) {
