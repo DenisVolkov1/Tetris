@@ -51,14 +51,14 @@ public abstract class Figure extends Group {
             case 0 : return Color.GREEN;
             case 1 : return Color.SLATEGRAY;
             case 2 : return Color.RED;
-            case 3 : return Color.SADDLEBROWN;
+            case 3 : return Color.DARKORANGE;
             case 4 : return Color.GOLD;
-            case 5 : return Color.FUCHSIA;
+            case 5 : return Color.SEAGREEN;
             case 6 : return Color.CRIMSON;
             case 7 : return Color.YELLOWGREEN;
             case 8 : return Color.BLUEVIOLET;
-            case 9 : return Color.DARKTURQUOISE;
-            default: return Color.FUCHSIA;
+            case 9 : return Color.MIDNIGHTBLUE;
+            default: return Color.KHAKI;
         }
     }
     public final void rotation() {

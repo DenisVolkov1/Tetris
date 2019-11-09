@@ -70,6 +70,7 @@ public class Main extends  Application {
         root.getChildren().add(fakePane);
         root.setBackground(new Background(new BackgroundFill(Color.SILVER, null, null)));
 
+
         nextFigure.setLayoutX(300);
         nextFigure.setLayoutY(430);
 
@@ -144,7 +145,7 @@ public class Main extends  Application {
         musicButton.setStyle(""+
                 "-fx-font: 20px Helvetica;"+
                 "-fx-font-weight: bold;" +
-                "-fx-background-radius: 7;"+
+                "-fx-background-radius: 5;"+
                 "-fx-padding : 0 0 0 0;"
         );
         offLineSound = new Line();
@@ -164,7 +165,7 @@ public class Main extends  Application {
         soundButton.setStyle("" +
                 "-fx-font: 20px Helvetica;"+
                 "-fx-font-weight: bold;" +
-                "-fx-background-radius: 7;"+
+                "-fx-background-radius: 5;"+
                 "-fx-padding : 0 0 0 0;"
         );
         offLineMusic.setVisible(false);
