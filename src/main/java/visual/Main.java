@@ -20,10 +20,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -31,6 +33,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import movement.MovementFiguresOnField;
+import util.Sound;
 
 import java.util.List;
 
@@ -41,22 +44,24 @@ public class Main extends  Application {
     private AnchorPane figuresPane;
     private static AnchorPane fakePane;
     private MovementFiguresOnField currentMove;
-
+    private Sound sound;
 
     public static Scene scene;
     public static Label score = new Label();
     public Label scoreWord = new Label();
     public Label nextWord = new Label();
     private Button restartButton;
+    private Button soundButton;
+    private Line offLineMusic;
+    private Line offLineSound;
+    private Button musicButton;
     private Figure currentFigure;
     private Field groupField = new Field();
-    private double rotate;
-
 
     @SuppressWarnings("unchecked")
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        sound = Sound.getInstance();
         figuresPane = new AnchorPane();
         fakePane = new AnchorPane();
         nextFigure = new AnchorPane();
@@ -76,13 +81,15 @@ public class Main extends  Application {
                     if (c.wasAdded()) {
                         List list = c.getList();
                         int index = list.size();
-                        currentFigure = (Figure) c.getList().get(index-1);
-                        currentMove = currentFigure.getMoveFigure();
-                        System.out.println("Current figure: "+currentFigure);
+                        Object objFromList = c.getList().get(index-1);
 
-                        nextFigure.getChildren().clear();
-                        nextFigure();
+                        if (!(objFromList instanceof Figure)) return;
+                            currentFigure = (Figure) objFromList;
+                            currentMove = currentFigure.getMoveFigure();
+                            System.out.println("Current figure: "+currentFigure);
 
+                            nextFigure.getChildren().clear();
+                            nextFigure();
                     }
                 }
             }
@@ -107,7 +114,7 @@ public class Main extends  Application {
         score.setTranslateX(495);
         score.setTranslateY(100);
         score.setText("0");
-        //
+        // buttons
         restartButton = new Button("Restart");
         restartButton.setFocusTraversable(false);
         restartButton.setPrefHeight(45);
@@ -119,8 +126,90 @@ public class Main extends  Application {
                 "-fx-font-weight: bold;" +
                 "-fx-background-radius: 7;"
                  );
+        int xButtonAllSound = 475;
+        offLineMusic = new Line();
+        offLineMusic.setStartX(xButtonAllSound);
+        offLineMusic.setStartY(40);
+        offLineMusic.setEndX(xButtonAllSound+25);
+        offLineMusic.setEndY(5);
+        offLineMusic.setStrokeWidth(5);
+        offLineMusic.setStroke(Color.RED);
+
+        musicButton = new Button("M");
+        musicButton.setFocusTraversable(false);
+        musicButton.setPrefHeight(35);
+        musicButton.setPrefWidth(30);
+        musicButton.setTranslateX(xButtonAllSound);
+        musicButton.setTranslateY(5);
+        musicButton.setStyle(""+
+                "-fx-font: 20px Helvetica;"+
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 7;"+
+                "-fx-padding : 0 0 0 0;"
+        );
+        offLineSound = new Line();
+        offLineSound.setStartX(xButtonAllSound+40);
+        offLineSound.setStartY(40);
+        offLineSound.setEndX(xButtonAllSound+65);
+        offLineSound.setEndY(5);
+        offLineSound.setStrokeWidth(5);
+        offLineSound.setStroke(Color.RED);
+
+        soundButton = new Button("S");
+        soundButton.setFocusTraversable(false);
+        soundButton.setPrefHeight(35);
+        soundButton.setPrefWidth(30);
+        soundButton.setTranslateX(xButtonAllSound+40);
+        soundButton.setTranslateY(5);
+        soundButton.setStyle("" +
+                "-fx-font: 20px Helvetica;"+
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 7;"+
+                "-fx-padding : 0 0 0 0;"
+        );
+        offLineMusic.setVisible(false);
+        offLineSound.setVisible(false);
+        //
+        root.getChildren().add(nextFigure);
+        root.getChildren().add(nextWord);
+        root.getChildren().add(restartButton);
+        root.getChildren().add(musicButton);
+        root.getChildren().add(soundButton);
+        root.getChildren().add(offLineMusic);
+        root.getChildren().add(offLineSound);
+        root.getChildren().add(scoreWord);
+        root.getChildren().add(score);
+        // buttons handlers
+        restartButton.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
+            sound.buttonHover();
+        });
+        musicButton.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
+            sound.buttonHover();
+        });
+        soundButton.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
+            sound.buttonHover();
+        });
+        musicButton.setOnMousePressed(event -> {
+            sound.buttonClick();
+            if (offLineMusic.isVisible()) {
+                offLineMusic.setVisible(false);
+            } else {
+                offLineMusic.setVisible(true);
+            }
+            sound.musicSwitch();
+        });
+        soundButton.setOnMousePressed(event -> {
+            sound.buttonClick();
+            if (offLineSound.isVisible()) {
+                offLineSound.setVisible(false);
+            } else {
+                offLineSound.setVisible(true);
+            }
+            sound.soundSwitch();
+        });
 
         restartButton.setOnMousePressed(event -> {
+            sound.buttonClick();
             figuresPane.getChildren().clear();
             currentMove.stopAnimation();
             figuresPane.getChildren().clear();
@@ -130,14 +219,8 @@ public class Main extends  Application {
             FigureFactory.setRateFigures(8.0);
 
             FigureFactory.createInstanceAndAddFigureInList(figuresPane);
-
         });
 
-        root.getChildren().add(nextFigure);
-        root.getChildren().add(nextWord);
-        root.getChildren().add(restartButton);
-        root.getChildren().add(scoreWord);
-        root.getChildren().add(score);
 
         /*Camera camera = new PerspectiveCamera();
         scene.setCamera(camera);*/

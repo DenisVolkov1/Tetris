@@ -19,25 +19,24 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Box;
 import javafx.util.Duration;
 import util.AnimationParts;
+import util.Sound;
 import visual.Main;
 
 public class MovementFiguresOnField {
 
     private static boolean[] locationParts = new boolean[160];
     private static boolean[] deleteRows = new boolean[16];
+    private static Sound sound;
+    private static int score;
 
     private Timeline animationFall;
     private Timeline animationLeftShift;
     private Timeline animationRightShift;
 
-
     private AnchorPane root;
-    private static int score;
-
     private final double  leftBoundFild = 49.0;
     private final double  rightBoundFild = 382.0;
     private final double  downBoundFild = 644.0;
-
 
     private Figure figure;
 
@@ -45,6 +44,7 @@ public class MovementFiguresOnField {
 
         this.figure = figure;
         this.root = root;
+        sound = Sound.getInstance();
 
         EventHandler<ActionEvent> fall  = event -> {
             moveFall();
@@ -153,7 +153,7 @@ public class MovementFiguresOnField {
             int rowIndex = (int)(parts[i].getTranslateY() - 54) / 37;
             int columnIndex = ((int)parts[i].getTranslateX() +37) / 37;
             int indexCheckPossibleLocation =  (columnIndex - 1) + (15 - rowIndex) * 10;
-            if (indexCheckPossibleLocation > 160 || indexCheckPossibleLocation < 0) return false;
+            if (indexCheckPossibleLocation >= 160 || indexCheckPossibleLocation < 0) return false;
             if (locationParts[indexCheckPossibleLocation]) return false;
         }
         return true;
@@ -168,7 +168,6 @@ public class MovementFiguresOnField {
         if(indexPart2 < 160) locationParts[indexPart2] = true;
         if(indexPart3 < 160) locationParts[indexPart3] = true;
         if(indexPart4 < 160) locationParts[indexPart4] = true;
-
     }
     private void disapereRow(ObservableList<Node> figures, int row) {
         ObservableList<Node> fakeBoxes = FXCollections.observableArrayList();
@@ -262,6 +261,7 @@ public class MovementFiguresOnField {
         return true;
     }
     private void moveRight() {
+        sound.shiftOrRotation();
         boolean checkConstraint = checkConstraintRightMove(figure.getBoxs());
         boolean borderCheck = borderCheckOnRight();
         if (borderCheck && checkConstraint) {
@@ -270,6 +270,7 @@ public class MovementFiguresOnField {
         this.setTranslateXBoxes(currentX);
     }
     private void moveLeft() {
+        sound.shiftOrRotation();
         boolean checkConstraint = checkConstraintLeftMove(figure.getBoxs());
         boolean borderCheck = borderCheckOnLeft();
         if (borderCheck && checkConstraint) {
@@ -284,15 +285,18 @@ public class MovementFiguresOnField {
             for (int i = 0; i < 4; i++) currentY[i] += 1;
             this.setTranslateYBoxes(currentY);
         } else {
-
+            sound.landed();
             stopAnimation();
                 commitFigureInArray();
-                    if(isOverGame()) return;
+                    if(isOverGame()) {
+                        sound.loseGame();
+                        return;
+                    }
                         checkOnRemovesRows();
 
             for (int j = 15; j >= 0; j--) {
                 if (deleteRows[j]) {
-
+                    sound.deleteRow();
                     disapereRow(root.getChildren(), j);
                     downAllFiguresUpperRemoveLine(root.getChildren(), j);
                 }
@@ -319,7 +323,6 @@ public class MovementFiguresOnField {
                 return true;
             }
         }
-
         return false;
     }
 

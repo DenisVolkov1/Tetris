@@ -10,10 +10,11 @@ import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.transform.Rotate;
 import movement.MovementFiguresOnField;
+import util.Sound;
 import visual.Field;
 
 public abstract class Figure extends Group {
-
+    private Sound sound;
     private static int idFigureCount = 0;
     private int idFigure;
     static double startPositionX = Field.getStartX() + 195;
@@ -28,6 +29,8 @@ public abstract class Figure extends Group {
 
     public Figure(AnchorPane root, double rateFigures) {
         super();
+        sound = Sound.getInstance();
+
         idFigure = ++idFigureCount;
         //init boxs
         Color colorBox = getColorRandom();
@@ -59,6 +62,7 @@ public abstract class Figure extends Group {
         }
     }
     public final void rotation() {
+        sound.shiftOrRotation();
         double x1 = getNextCoordinateRotation()[0];
         double y1 = getNextCoordinateRotation()[1];
 
