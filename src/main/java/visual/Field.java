@@ -30,7 +30,7 @@ public class Field extends Pane {
         for (Rectangle[] rectangles : rects) {
             for (Rectangle rectangle : rectangles) {
                 rectangle = new Rectangle(rectsX, rectsY, fieldBoxSize, fieldBoxSize);
-                rectangle.setOpacity(0.7);
+                rectangle.setOpacity(0.8);
                 rectsX += fieldBoxSize+distanceBetweenCells;
                 rectangle.setFill(Color.WHITE);
                 this.getChildren().add(rectangle);

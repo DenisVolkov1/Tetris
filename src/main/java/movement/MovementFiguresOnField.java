@@ -19,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Box;
 import javafx.util.Duration;
 import util.AnimationParts;
+import util.Blur;
 import util.Sound;
 import visual.Main;
 
@@ -90,15 +91,15 @@ public class MovementFiguresOnField {
         }
     }
     private void setRateFigure() {
-        if (score == 8)  {FigureFactory.setRateFigures(8.0); return;}
-        if (score == 24) {FigureFactory.setRateFigures(7.5); return;}
+        if (score == 8)  {FigureFactory.setRateFigures(7.8); return;}
+        if (score == 16) {FigureFactory.setRateFigures(7.5); return;}
         if (score == 32) {FigureFactory.setRateFigures(7.0); return;}
         if (score == 64) {FigureFactory.setRateFigures(6.5); return;}
         if (score == 72) {FigureFactory.setRateFigures(6.0); return;}
         if (score == 120) {FigureFactory.setRateFigures(5.5); return;}
-        if (score == 160) {FigureFactory.setRateFigures(5.5); return;}
+        if (score == 160) {FigureFactory.setRateFigures(5.3); return;}
         if (score == 200) {FigureFactory.setRateFigures(5.0); return;}
-        if (score == 280) {FigureFactory.setRateFigures(4.0); return;}
+        if (score == 280) {FigureFactory.setRateFigures(4.5); return;}
     }
 
     private void columnsDown(int countRow) {
@@ -113,8 +114,16 @@ public class MovementFiguresOnField {
         }
         return true;
     }
-    public void stopFall() {
-        animationFall.pause();
+    public void pause() {
+        String status = animationFall.getStatus().name();
+      if (status.equals("RUNNING")) {
+          Blur.blurEffectOnBackground(root);
+          animationFall.pause();
+      } else {
+          animationFall.play();
+          root.getChildren().remove(root.getChildren().size()-1);
+      }
+
     }
 
     public void movementFall() {
@@ -308,18 +317,7 @@ public class MovementFiguresOnField {
     private boolean isOverGame() {
         for (int i = 150; i < 160; i++) {
             if(locationParts[i]) {
-                Effect frostEffect =
-                        new BoxBlur(10, 10, 3);
-                ImageView background = new ImageView();
-                WritableImage image = Main.scene.snapshot( null);
-                background.setImage(image);
-                background.setEffect(frostEffect);
-
-                StackPane stackPane = new StackPane();
-                stackPane.getChildren().setAll(background);
-                stackPane.setStyle("-fx-background-color: null");
-                root.getChildren().add(stackPane);
-
+                Blur.blurEffectOnBackground(root);
                 return true;
             }
         }
