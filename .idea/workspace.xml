@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef48fd8-c16c-481b-9e41-c47d1729f863" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/Blur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/visual/AbsenceOfStageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/visual/Run.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/visual/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/figures/Figure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/figures/Figure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/movement/MovementFiguresOnField.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/movement/MovementFiguresOnField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visual/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visual/Field.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visual/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visual/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visual/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visual/Main.class" afterDir="false" />
     </list>
@@ -26,14 +23,32 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/visual/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="112">
+              <caret line="288" column="46" lean-forward="true" selection-start-line="288" selection-start-column="46" selection-end-line="288" selection-end-column="46" />
               <folding>
-                <element signature="e#9241#9242#0" expanded="true" />
-                <element signature="e#9272#9273#0" expanded="true" />
-                <element signature="e#10710#10711#0" expanded="true" />
-                <element signature="e#10738#10739#0" expanded="true" />
+                <element signature="e#1416#1446#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/visual/Run.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -41,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/visual/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
+            <state relative-caret-position="411">
               <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
             </state>
           </provider>
@@ -61,28 +76,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/figures/Figure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4656">
-              <caret line="318" column="34" lean-forward="true" selection-start-line="318" selection-start-column="34" selection-end-line="318" selection-end-column="34" />
+            <state relative-caret-position="141">
+              <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -90,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Blur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="96">
+              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -99,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Sound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="320">
               <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -121,6 +118,7 @@
     <findStrings>
       <find>s1</find>
       <find>soun</find>
+      <find>root</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,6 +128,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -139,6 +142,9 @@
         <option value="$PROJECT_DIR$/src/main/java/figures/Figure.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/Field.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/Blur.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/AbcsenceOfStageException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/AbsenceOfStageException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/visual/Run.java" />
         <option value="$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java" />
         <option value="$PROJECT_DIR$/src/main/java/visual/Main.java" />
       </list>
@@ -162,7 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,14 +230,18 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573377103753" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573497065365" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="gradle.compiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="visual" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\java\tetris\src\main\resources" />
     </key>
@@ -249,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="visual.Main" />
       <module name="tetris" />
@@ -263,8 +272,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="visual.Run" />
+      <module name="tetris" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="visual.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Run" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Run" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -343,13 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573330595885</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add pause">
+      <created>1573490226702</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1573490226702</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25037822" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25416037" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -361,7 +398,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6550681" weight="0.19639935" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6550681" visible="true" weight="0.25531915" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -390,7 +427,8 @@
     <MESSAGE value="next figure add" />
     <MESSAGE value="blur add" />
     <MESSAGE value="add sound and music" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sound and music" />
+    <MESSAGE value="add pause" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pause" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -420,6 +458,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_192/javafx-src.zip!/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1212">
+          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/figures/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Blur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/figures/ChairRight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -431,67 +500,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Sound.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_192/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="-285">
+          <caret line="906" column="69" lean-forward="true" selection-start-line="906" selection-start-column="69" selection-end-line="906" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_192/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/AbsenceOfStageException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#143#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/visual/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/figures/Figure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Blur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4656">
-          <caret line="318" column="34" lean-forward="true" selection-start-line="318" selection-start-column="34" selection-end-line="318" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_192/javafx-src.zip!/javafx/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1212">
-          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
+        <state relative-caret-position="141">
+          <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/visual/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="112">
+          <caret line="288" column="46" lean-forward="true" selection-start-line="288" selection-start-column="46" selection-end-line="288" selection-end-column="46" />
           <folding>
-            <element signature="e#9241#9242#0" expanded="true" />
-            <element signature="e#9272#9273#0" expanded="true" />
-            <element signature="e#10710#10711#0" expanded="true" />
-            <element signature="e#10738#10739#0" expanded="true" />
+            <element signature="e#1416#1446#0" expanded="true" />
           </folding>
         </state>
       </provider>

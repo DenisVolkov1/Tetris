@@ -1,7 +1,6 @@
 package visual;
 
 import figures.*;
-import javafx.application.Application;
 import javafx.collections.ListChangeListener;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
@@ -14,26 +13,30 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import movement.MovementFiguresOnField;
+import util.Blur;
 import util.Sound;
 
 import java.util.List;
 
-public class Main extends  Application {
+public class Main {
 
+    private static Stage primaryStage;
+    private static Main main;
+    private static AnchorPane fakePane;
     private AnchorPane nextFigure;
     private AnchorPane root;
     private AnchorPane figuresPane;
-    private static AnchorPane fakePane;
     private MovementFiguresOnField currentMove;
     private Sound sound;
 
     public static Scene scene;
-    public static Label score = new Label();
+    public  Label score = new Label();
     public Label scoreWord = new Label();
     public Label nextWord = new Label();
 
@@ -46,8 +49,7 @@ public class Main extends  Application {
     private Field groupField = new Field();
 
     @SuppressWarnings("unchecked")
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    private Main() {
         sound = Sound.getInstance();
         figuresPane = new AnchorPane();
         fakePane = new AnchorPane();
@@ -80,9 +82,10 @@ public class Main extends  Application {
                 }
             }
         });
+        // first figure start game
         FigureFactory.createInstanceAndAddFigureInList(figuresPane);
         currentMove = currentFigure.getMoveFigure();
-
+        //settings Main
         primaryStage.setTitle("Tetris");
         scene = new Scene(root, 600, 680);
         //label
@@ -271,8 +274,42 @@ public class Main extends  Application {
             box.setMaterial(phongMaterial);
         }
     }
-
-    public static void main(String[] args) {
-        launch(args);
+    public static Main getInstance(Stage pStage) {
+        primaryStage = pStage;
+        if (main == null) {
+            main = new Main();
+            return main;
+        } else {
+            return main;
+        }
     }
+    boolean pause = false;
+    public void blurPause() {
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.setHeight(50);
+        rectangle.setWidth(150);
+
+            Label label = new Label("Pause");
+            label.setFont(Font.font("Helvetica", FontWeight.BOLD,30));
+            label.setLabelFor(rectangle);
+
+            if (!pause) {
+                Blur.blurEffectOnBackground(root);
+                root.getChildren().add(rectangle);
+            } else {
+                root.getChildren().remove(root.getChildren().size()-1);
+                root.getChildren().remove(root.getChildren().size()-1);
+            }
+        pause = !pause;
+
+    }
+    public static Main getInstance() {
+        if (main == null && primaryStage == null) {
+            throw new AbsenceOfStageException("Install Stage use Main.getInstance(Stage pStage)");
+        } else {
+            return main;
+        }
+    }
+
 }

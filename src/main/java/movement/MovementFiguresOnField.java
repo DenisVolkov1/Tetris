@@ -79,7 +79,8 @@ public class MovementFiguresOnField {
             if (isRowRemove(b)) {
                 System.out.println("remove row - " + i);
                 score = score + 8;
-                Main.score.setText(Integer.toString(score));
+                //Main.score.setText(Integer.toString(score));
+                Main.getInstance().score.setText(Integer.toString(score));
                 setRateFigure();
 
                 deleteRows[i] = true;
@@ -117,11 +118,13 @@ public class MovementFiguresOnField {
     public void pause() {
         String status = animationFall.getStatus().name();
       if (status.equals("RUNNING")) {
-          Blur.blurEffectOnBackground(root);
+          //Blur.blurEffectOnBackground(root);
+          Main.getInstance().blurPause();
           animationFall.pause();
       } else {
+          Main.getInstance().blurPause();
           animationFall.play();
-          root.getChildren().remove(root.getChildren().size()-1);
+          //root.getChildren().remove(root.getChildren().size()-1);
       }
 
     }
