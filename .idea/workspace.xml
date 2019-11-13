@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0ef48fd8-c16c-481b-9e41-c47d1729f863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visual/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visual/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/movement/MovementFiguresOnField.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/movement/MovementFiguresOnField.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,29 +18,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/visual/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="317" column="31" selection-start-line="317" selection-start-column="31" selection-end-line="317" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/visual/Run.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="-336">
+              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1420#1450#0" expanded="true" />
+                <element signature="e#8431#8432#0" expanded="true" />
+                <element signature="e#8462#8463#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -70,20 +52,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="992">
+              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/figures/Figure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="704">
+              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="295" column="49" selection-start-line="295" selection-start-column="49" selection-end-line="295" selection-end-column="49" />
-              <folding>
-                <element signature="e#4183#4184#0" expanded="true" />
-                <element signature="e#4219#4220#0" expanded="true" />
-                <element signature="e#4252#4253#0" expanded="true" />
-                <element signature="e#4292#4293#0" expanded="true" />
-                <element signature="e#4326#4327#0" expanded="true" />
-                <element signature="e#4367#4368#0" expanded="true" />
-                <element signature="e#12455#12456#0" expanded="true" />
-                <element signature="e#12507#12508#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="4672">
+              <caret line="313" column="34" selection-start-line="313" selection-start-column="34" selection-end-line="313" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -91,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Blur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
+            <state relative-caret-position="96">
               <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
             </state>
           </provider>
@@ -403,7 +393,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6550681" visible="true" weight="0.25531915" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.65431166" visible="true" weight="0.25531915" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -542,39 +532,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/figures/FigureFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        <state relative-caret-position="992">
+          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/Blur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
+        <state relative-caret-position="96">
           <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/movement/MovementFiguresOnField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="295" column="49" selection-start-line="295" selection-start-column="49" selection-end-line="295" selection-end-column="49" />
-          <folding>
-            <element signature="e#4183#4184#0" expanded="true" />
-            <element signature="e#4219#4220#0" expanded="true" />
-            <element signature="e#4252#4253#0" expanded="true" />
-            <element signature="e#4292#4293#0" expanded="true" />
-            <element signature="e#4326#4327#0" expanded="true" />
-            <element signature="e#4367#4368#0" expanded="true" />
-            <element signature="e#12455#12456#0" expanded="true" />
-            <element signature="e#12507#12508#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="4672">
+          <caret line="313" column="34" selection-start-line="313" selection-start-column="34" selection-end-line="313" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/visual/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="317" column="31" selection-start-line="317" selection-start-column="31" selection-end-line="317" selection-end-column="31" />
+        <state relative-caret-position="-336">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#1420#1450#0" expanded="true" />
+            <element signature="e#8431#8432#0" expanded="true" />
+            <element signature="e#8462#8463#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
