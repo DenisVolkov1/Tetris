@@ -79,7 +79,6 @@ public class MovementFiguresOnField {
             if (isRowRemove(b)) {
                 System.out.println("remove row - " + i);
                 score = score + 8;
-                //Main.score.setText(Integer.toString(score));
                 Main.getInstance().score.setText(Integer.toString(score));
                 setRateFigure();
 
@@ -117,16 +116,9 @@ public class MovementFiguresOnField {
     }
     public void pause() {
         String status = animationFall.getStatus().name();
-      if (status.equals("RUNNING")) {
-          //Blur.blurEffectOnBackground(root);
-          Main.getInstance().blurPause();
-          animationFall.pause();
-      } else {
-          Main.getInstance().blurPause();
-          animationFall.play();
-          //root.getChildren().remove(root.getChildren().size()-1);
-      }
-
+        Main.getInstance().blurPause();
+      if (status.equals("RUNNING")) animationFall.pause();
+      else animationFall.play();
     }
 
     public void movementFall() {
@@ -301,8 +293,8 @@ public class MovementFiguresOnField {
             stopAnimation();
                 commitFigureInArray();
                     if(isOverGame()) {
-                        sound.loseGame();
-                        return;
+                       Main.getInstance().blurGameOver();
+                       return;
                     }
                         checkOnRemovesRows();
 
@@ -320,7 +312,6 @@ public class MovementFiguresOnField {
     private boolean isOverGame() {
         for (int i = 150; i < 160; i++) {
             if(locationParts[i]) {
-                Blur.blurEffectOnBackground(root);
                 return true;
             }
         }

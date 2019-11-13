@@ -168,6 +168,7 @@ public class Main {
         root.getChildren().add(offLineSound);
         root.getChildren().add(scoreWord);
         root.getChildren().add(score);
+
         // buttons handlers
         restartButton.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
             sound.buttonHover();
@@ -283,23 +284,56 @@ public class Main {
             return main;
         }
     }
-    boolean pause = false;
-    public void blurPause() {
+    public void blurGameOver() {
+        sound.loseGame();
+        Rectangle rectangle = new Rectangle();
+        rectangle.setHeight(50);
+        rectangle.setWidth(200);
+        rectangle.setLayoutX(120);
+        rectangle.setLayoutY(310);
+        rectangle.setFill(Color.RED);
+        rectangle.setOpacity(0.75);
 
+        Rectangle rectangle2 = new Rectangle();
+        rectangle2.setHeight(60);
+        rectangle2.setWidth(210);
+        rectangle2.setLayoutX(115);
+        rectangle2.setLayoutY(305);
+        rectangle2.setFill(Color.RED);
+        rectangle2.setOpacity(0.5);
+        Label label = new Label("Game Over");
+        label.setFont(Font.font("Helvetica", FontWeight.BOLD,30));
+        label.setLayoutX(143);
+        label.setLayoutY(315);
+
+        Blur.blurEffectOnBackground(figuresPane);
+        figuresPane.getChildren().add(rectangle);
+        figuresPane.getChildren().add(rectangle2);
+        figuresPane.getChildren().add(label);
+
+    }
+    private boolean pause = false;
+    public void blurPause() {
         Rectangle rectangle = new Rectangle();
         rectangle.setHeight(50);
         rectangle.setWidth(150);
-
+        rectangle.setLayoutX(140);
+        rectangle.setLayoutY(310);
+        rectangle.setFill(Color.RED);
+        rectangle.setOpacity(0.7);
             Label label = new Label("Pause");
             label.setFont(Font.font("Helvetica", FontWeight.BOLD,30));
-            label.setLabelFor(rectangle);
+            label.setLayoutX(175);
+            label.setLayoutY(315);
 
             if (!pause) {
                 Blur.blurEffectOnBackground(root);
                 root.getChildren().add(rectangle);
+                root.getChildren().add(label);
             } else {
-                root.getChildren().remove(root.getChildren().size()-1);
-                root.getChildren().remove(root.getChildren().size()-1);
+                for (int i = 1; i <= 3; i++) {
+                    root.getChildren().remove(root.getChildren().size()-1);
+                }
             }
         pause = !pause;
 
